@@ -1,0 +1,27 @@
+
+    /* RESPONSIVE CSS
+    -------------------------------------------------- */
+    @media (min-width: 980px) {
+        .main-content-news{
+            max-width: 97%;
+        }
+    }
+
+    @media (max-width: 979px) {
+        .main-content-news{
+            max-width: 95%;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .main-content-news{
+            max-width: 93%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .main-content-news{
+            max-width: 90%;
+        }
+    }
+    

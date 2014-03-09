@@ -1,0 +1,271 @@
+
+    /* RESPONSIVE CSS
+    -------------------------------------------------- */
+    @media (min-width: 980px) {
+      .nav-custom-link a:hover{
+    	color: white !important;
+	  }
+	  .nav-custom-link a{
+    		display: inline;
+    		color: #C5C5C5 !important;
+    		float: left;
+    		padding: 10px 15px;
+    		text-decoration: none;
+    		text-align: center;
+    		width: 100%;
+      }
+      .contact-captcha{
+          margin-top: 20px;
+      }
+      .contact-captcha input:last-child{
+           margin-left: 158px;
+           margin-top: 20px;
+      }
+    }
+    
+    @media (max-width: 979px) {
+
+      .container.navbar-wrapper {
+        margin-bottom: 0;
+        width: auto;
+      }
+      .navbar-inner {
+        border-radius: 0;
+        margin: -20px 0;
+      }
+      .navbar-inverse .navbar-text {
+           float:none !important;
+      }
+      .navbar-inverse{ padding-top: 20px; }
+      #myCarousel .item {
+        height: 300px;
+      }
+      #myCarouselGuide .item {
+        height: 600px;
+      }
+      .carousel img {
+        width: auto;
+        height: 500px;
+      }
+      .featurette {
+        height: auto;
+        padding: 0;
+      }
+      .featurette-image.pull-left,
+      .featurette-image.pull-right {
+        display: block;
+        float: none;
+        max-width: 40%;
+        margin: 0 auto 20px;
+      }
+      
+      .nav-custom-link a:hover{
+    	color: white !important;
+	  }
+	  .nav-custom-link a{
+    		display: inline;
+    		color: #C5C5C5 !important;
+    		float: left;
+    		padding: 10px 15px;
+    		text-decoration: none;
+    		text-align: center;
+    		width: 100%;
+      }
+      
+      #user-login .control-label{
+			width: 80px;
+	  }
+	  #user-login .controls{
+			margin-left: 110px;
+	  }
+    }
+
+    @media (max-width: 767px) {
+    
+      body{
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+      }
+      .navbar-inverse .navbar-text {
+           float:none !important;
+      }
+      .carousel{
+            margin-left: 0px !important;
+            margin-right: 0px !important;
+            width: 100% !important;
+      }
+
+      #wrapper-content-hp{
+         padding: 20px 2% 40px !important;
+         width: 96% !important;
+      }
+      
+      #wrapper-content{
+         min-height: 200px !important;
+         padding: 50px 2% !important;
+         width: 96% !important;
+      }
+      #forum .detail-category{
+         padding-bottom: 5px;
+      }
+      #forum .content-category{
+         float:left;
+      }
+      #show-about-in-menu{
+         display: none;
+      }
+      
+      
+      #contact{float: left;}
+      #profile-choose-option{
+          margin-top: 20px;
+          margin-bottom: 20px;
+      }
+
+      #blue-Bar{
+          height: auto !important;
+          width: 96% !important;
+          padding-left: 2% !important;
+          padding-right: 2% !important;
+      }
+      #newsletter,.footer-contact-us,.follow-us{
+        padding-bottom: 20px;
+      }
+      .user-info .span2{
+      	padding-left: 15px !important;
+      }
+      
+      .nav-custom-link{
+    	width: 103% !important;
+	  }
+	  .nav-custom-link a {padding: 2px 5px !important;height: 40px !important;}
+      .carousel {
+        float:left;
+        margin-left: -20px;
+        margin-right: -20px;
+      }
+      .carousel .container {}
+
+      #myCarousel .item {
+        height: 300px;
+      }
+      #myCarouselGuide .item {
+        height: 600px;
+      }
+      
+      .carousel img {
+        height: 300px;
+      }
+      .carousel-caption {
+        width: 65%;
+        padding: 0 70px;
+      }
+      .carousel-caption h1 {
+        font-size: 30px;
+      }
+      .carousel-caption .lead,
+      .carousel-caption .btn {
+        font-size: 18px;
+      }
+      .marketing .span4 + .span4 {
+        margin-top: 40px;
+      }
+
+      .featurette-heading {
+        font-size: 30px;
+      }
+      .featurette .lead {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+      
+      .footer-contact-us{
+    		padding-left: 20px;
+      }
+      #signup-menu,#signin-menu,#useronline-menu,#contact-menu{
+      		height: 0px !important;
+      }
+      .nav-custom-link li{
+      	line-height: 40px !important;
+      }
+      .nav-custom-link a:hover{
+    	color: white !important;
+	  }
+	  .nav-custom-link a{
+    		display: inline;
+    		color: #C5C5C5 !important;
+    		float: left;
+    		padding: 10px 15px;
+    		text-decoration: none;
+    		text-align: center;
+    		width: 100%;
+      }
+      #register-customer input{
+			margin-top: 5px;
+	  }
+	  .main-signup form{
+    		padding: 20px;
+      }
+      .forgotpassword button{
+      		margin-top: 15px;
+      }
+      #contact input,#contact textarea{
+        width: auto !important;
+      }
+      #myCarousel .btn, .slide-title-hp{
+        display: none;
+      }
+      #myCarousel .item{
+         max-height: 300px;
+         height: 300px;
+      }
+      #myCarousel .carousel-caption{
+         padding-left: 80px;
+      }
+      #myCarousel .carousel-indicators{
+         display: none;
+      }
+
+    }
+    
+    @media (max-width: 480px) {
+    
+    	.media-body{
+    		padding-left: 15px !important;
+    	}
+    	.media .pull-left, .media .pull-right{
+    		margin-bottom: 0px !important;
+    	}
+    	
+    	.nav-custom-link a{
+    		display: inline;
+    		color: #0088CC !important;
+    		font-weight: bold;
+    		float: none;
+    		padding: 10px 15px;
+    		text-decoration: none;
+    		text-align: center;
+    		width: 100%;
+    	}
+    	.nav-custom-link a:hover{
+    		color: #005580 !important;
+    		font-weight: bold;
+    	}
+    	.nav-custom-link li{
+    		float: none !important;
+    		width: 100% !important; 
+    	}
+    	#navigation{
+    		padding-top: 50px !important;
+    	}
+    	.main-signin{
+    		height: 290px !important;
+    	}
+    	#user-login .controls,#user-login .control-label{
+    		margin-left: 20px;
+    	}
+    	.main-signup form{
+    		padding: 20px;
+    	}
+    }
+    

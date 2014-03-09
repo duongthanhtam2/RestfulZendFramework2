@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html itemscope="" itemtype="http://schema.org/Article" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="robots" content="index, follow">
+
+        <!-- Google Authorship and Publisher Markup -->
+        <link rel="author" href="https://plus.google.com/108288275084422459002/posts">
+
+        <title>Getting Started with REST and Zend Framework 2 - Chia sẻ mọi thứ cho bạn</title>        <meta name="keywords" content="getting-started-with-rest-and-zend-framework-2,connect-to-share,c2s,jimmyvan">
+<meta name="description" content="Today i want to show you how to build a rest application. This tutorials assume you have completed the Getting Started. I will be repeating lot of the steps allready explained in there.">
+<meta name="twitter:title" content="Getting Started with REST and Zend Framework 2">
+<meta name="twitter:description" content="Today i want to show you how to build a rest application. This tutorials assume you have completed the Getting Started. I will be repeating lot of the steps allready explained in there.">
+<meta name="twitter:creator" content="@Tri84369470">
+<meta name="twitter:image:src" content="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/t1/s160x160/1238304_326666634144894_1488207328_a.png">
+<meta property="og:title" content="Getting Started with REST and Zend Framework 2">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://connecttoshare.com/forum/news/getting-started-with-rest-and-zend-framework-2">
+<meta property="og:image" content="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/t1/s160x160/1238304_326666634144894_1488207328_a.png">
+<meta property="og:description" content="Today i want to show you how to build a rest application. This tutorials assume you have completed the Getting Started. I will be repeating lot of the steps allready explained in there.">
+<meta property="og:site_name" content="Connect To Share - connecttoshare.com">
+<meta property="article:tag" content="Web Design,Webmaster Viet Nam,WebMaster,CMS,CMS Joomla,CMS Plone,CMS Wordpress,CMS Drupal,Lap Trinh,PHP-MYSQL,Web Design,PHP,C#,JAVA,C++,Mysql,SQL Server,SEO,Url Rewrite,Doctrine Orm,Doctrine Odm,Zend Framework2,Ubuntu,Php Unit,MongoDB,Open Sources">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="http://connecttoshare.com/frontend/common/img/ico/Superman-logo.png" rel="shortcut icon" type="image/vnd.microsoft.icon">
+<link href="Getting%20Started%20with%20REST%20and%20Zend%20Framework%202%20-%20Chia%20s%E1%BA%BB%20m%E1%BB%8Di%20th%E1%BB%A9%20cho%20b%E1%BA%A1n_files/bootstrap.css" media="screen" rel="stylesheet" type="text/css">
+<link href="Getting%20Started%20with%20REST%20and%20Zend%20Framework%202%20-%20Chia%20s%E1%BA%BB%20m%E1%BB%8Di%20th%E1%BB%A9%20cho%20b%E1%BA%A1n_files/bootstrap-responsive.css" media="screen" rel="stylesheet" type="text/css">
+<link href="Getting%20Started%20with%20REST%20and%20Zend%20Framework%202%20-%20Chia%20s%E1%BA%BB%20m%E1%BB%8Di%20th%E1%BB%A9%20cho%20b%E1%BA%A1n_files/responsive.css" media="screen" rel="stylesheet" type="text/css">
+<link href="Getting%20Started%20with%20REST%20and%20Zend%20Framework%202%20-%20Chia%20s%E1%BA%BB%20m%E1%BB%8Di%20th%E1%BB%A9%20cho%20b%E1%BA%A1n_files/common.css" media="screen" rel="stylesheet" type="text/css">
+<link href="Getting%20Started%20with%20REST%20and%20Zend%20Framework%202%20-%20Chia%20s%E1%BA%BB%20m%E1%BB%8Di%20th%E1%BB%A9%20cho%20b%E1%BA%A1n_files/layout1.css" media="screen" rel="stylesheet" type="text/css">
+<link href="Getting%20Started%20with%20REST%20and%20Zend%20Framework%202%20-%20Chia%20s%E1%BA%BB%20m%E1%BB%8Di%20th%E1%BB%A9%20cho%20b%E1%BA%A1n_files/forum.css" media="screen" rel="stylesheet" type="text/css">
+<link href="Getting%20Started%20with%20REST%20and%20Zend%20Framework%202%20-%20Chia%20s%E1%BA%BB%20m%E1%BB%8Di%20th%E1%BB%A9%20cho%20b%E1%BA%A1n_files/forum-responsive.css" media="screen" rel="stylesheet" type="text/css">
+        <!-- Scripts -->
+        <script src="Getting%20Started%20with%20REST%20and%20Zend%20Framework%202%20-%20Chia%20s%E1%BA%BB%20m%E1%BB%8Di%20th%E1%BB%A9%20cho%20b%E1%BA%A1n_files/analytics.js" async=""></script><script src="Getting%20Started%20with%20REST%20and%20Zend%20Framework%202%20-%20Chia%20s%E1%BA%BB%20m%E1%BB%8Di%20th%E1%BB%A9%20cho%20b%E1%BA%A1n_files/all.js" id="facebook-jssdk"></script><script type="text/javascript" src="Getting%20Started%20with%20REST%20and%20Zend%20Framework%202%20-%20Chia%20s%E1%BA%BB%20m%E1%BB%8Di%20th%E1%BB%A9%20cho%20b%E1%BA%A1n_files/jquery_002.js"></script>
+<script type="text/javascript" src="Getting%20Started%20with%20REST%20and%20Zend%20Framework%202%20-%20Chia%20s%E1%BA%BB%20m%E1%BB%8Di%20th%E1%BB%A9%20cho%20b%E1%BA%A1n_files/bootstrap.js"></script>
+<script type="text/javascript" src="Getting%20Started%20with%20REST%20and%20Zend%20Framework%202%20-%20Chia%20s%E1%BA%BB%20m%E1%BB%8Di%20th%E1%BB%A9%20cho%20b%E1%BA%A1n_files/common.js"></script>
+<!--[if lt IE 9]><script type="text/javascript" src="/frontend/common/js/html5.js"></script><![endif]-->
+<script type="text/javascript" src="Getting%20Started%20with%20REST%20and%20Zend%20Framework%202%20-%20Chia%20s%E1%BA%BB%20m%E1%BB%8Di%20th%E1%BB%A9%20cho%20b%E1%BA%A1n_files/news.js"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}
+.fb_invisible{display:none}
+.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}
+.fb_reset > div{overflow:hidden}
+.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}
+.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}
+.fb_dialog_content{background:#fff;color:#333}
+.fb_dialog_close_icon{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px;top:8px\9;right:7px\9}
+.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}
+.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}
+.fb_dialog_close_icon:hover{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}
+.fb_dialog_close_icon:active{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}
+.fb_dialog_loader{background-color:#f2f2f2;border:1px solid #606060;font-size:24px;padding:20px}
+.fb_dialog_top_left,
+.fb_dialog_top_right,
+.fb_dialog_bottom_left,
+.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}
+.fb_dialog_top_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}
+.fb_dialog_top_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}
+.fb_dialog_bottom_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}
+.fb_dialog_bottom_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right,
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right{width:10px;height:100%}
+.fb_dialog_vert_left{margin-left:-10px}
+.fb_dialog_vert_right{right:0;margin-right:-10px}
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{width:100%;height:10px}
+.fb_dialog_horiz_top{margin-top:-10px}
+.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}
+.fb_dialog_iframe{line-height:0}
+.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3b5998;color:#fff;font-size:14px;font-weight:bold;margin:0}
+.fb_dialog_content .dialog_title > span{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif)
+no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}
+body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}
+.fb_dialog.fb_dialog_mobile.loading{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif)
+white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}
+.fb_dialog.fb_dialog_mobile.loading.centered{max-height:590px;min-height:590px;max-width:500px;min-width:500px}
+#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}
+#fb-root #fb_dialog_ipad_overlay.hidden{display:none}
+.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}
+.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}
+.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%
+}
+.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6),
+color-stop(0.5, #355492), to(#2A4887));border:1px solid #29447e;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset,
+rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}
+.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}
+.fb_dialog_content .dialog_content{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}
+.fb_dialog_content .dialog_footer{background:#f2f2f2;border:1px solid #555;border-top-color:#ccc;height:40px}
+#fb_dialog_loader_close{float:left}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}
+.fb_iframe_widget{display:inline-block;position:relative}
+.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}
+.fb_iframe_widget iframe{position:absolute}
+.fb_iframe_widget_lift{z-index:1}
+.fb_hide_iframes iframe{position:relative;left:-10000px}
+.fb_iframe_widget_loader{position:relative;display:inline-block}
+.fb_iframe_widget_fluid{display:inline}
+.fb_iframe_widget_fluid span{width:100%}
+.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}
+.fb_iframe_widget_loader .FB_Loader{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_connect_bar_container div,
+.fb_connect_bar_container span,
+.fb_connect_bar_container a,
+.fb_connect_bar_container img,
+.fb_connect_bar_container strong{background:none;border-spacing:0;border:0;direction:ltr;font-style:normal;font-variant:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal;vertical-align:baseline}
+.fb_connect_bar_container{position:fixed;left:0 !important;right:0 !important;height:42px !important;padding:0 25px !important;margin:0 !important;vertical-align:middle !important;border-bottom:1px solid #333 !important;background:#3b5998 !important;z-index:99999999 !important;overflow:hidden !important}
+.fb_connect_bar_container_ie6{position:absolute;top:expression(document.compatMode=="CSS1Compat"? document.documentElement.scrollTop+"px":body.scrollTop+"px")}
+.fb_connect_bar{position:relative;margin:auto;height:100%;width:100%;padding:6px 0 0 0 !important;background:none;color:#fff !important;font-family:"lucida grande", tahoma, verdana, arial, sans-serif !important;font-size:13px !important;font-style:normal !important;font-variant:normal !important;font-weight:normal !important;letter-spacing:normal !important;line-height:1 !important;text-decoration:none !important;text-indent:0 !important;text-shadow:none !important;text-transform:none !important;white-space:normal !important;word-spacing:normal !important}
+.fb_connect_bar a:hover{color:#fff}
+.fb_connect_bar .fb_profile img{height:30px;width:30px;vertical-align:middle;margin:0 6px 5px 0}
+.fb_connect_bar div a,
+.fb_connect_bar span,
+.fb_connect_bar span a{color:#bac6da;font-size:11px;text-decoration:none}
+.fb_connect_bar .fb_buttons{float:right;margin-top:7px}
+.fbpluginrecommendationsbarleft,
+.fbpluginrecommendationsbarright{position:fixed !important;bottom:0;z-index:999}
+.fbpluginrecommendationsbarleft{left:10px}
+.fbpluginrecommendationsbarright{right:10px}</style></head>
+
+<body>
+<div id="header" class="navbar navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="http://connecttoshare.com/">C2S</a>
+          <div class="nav-collapse collapse">
+            <p class="navbar-text pull-right">
+                    <a class="multilanguage" href="http://connecttoshare.com/forum/news/getting-started-with-rest-and-zend-framework-2?lang=vi" title="vietnamese">
+                    <img alt="" src="Getting%20Started%20with%20REST%20and%20Zend%20Framework%202%20-%20Chia%20s%E1%BA%BB%20m%E1%BB%8Di%20th%E1%BB%A9%20cho%20b%E1%BA%A1n_files/vi_icon.png"></a>
+                    <a class="multilanguage" href="http://connecttoshare.com/forum/news/getting-started-with-rest-and-zend-framework-2?lang=en" title="english">
+                    <img alt="" src="Getting%20Started%20with%20REST%20and%20Zend%20Framework%202%20-%20Chia%20s%E1%BA%BB%20m%E1%BB%8Di%20th%E1%BB%A9%20cho%20b%E1%BA%A1n_files/uk-icon.png"></a>
+                                </p>
+            <ul class="nav nav-customize">
+              <li class="active"><a href="http://connecttoshare.com/">Trang Chủ</a></li>
+              <li><a href="http://connecttoshare.com/forum">Diễn đàn</a></li>
+              <li><a href="http://connecttoshare.com/entertainment/">Giải trí</a></li>
+
+              <li><a href="http://connecttoshare.com/utility">Tiện Ích</a></li>
+
+<!-- -------------------------start process login--------------------------- -->
+                                                <li><a class="navbar-link" href="http://connecttoshare.com/signup">Đăng Kí</a></li>
+                            <li><a class="navbar-link" href="http://connecttoshare.com/signin">Đăng Nhập</a></li>
+                    <!-- ------------------------end process login---------------------------------->
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+</div>
+
+
+
+   <div style="min-height:12003px" id="wrapper-content">
+        <div class="container wrapper-content"><link type="text/css" rel="stylesheet" media="screen" href="Getting%20Started%20with%20REST%20and%20Zend%20Framework%202%20-%20Chia%20s%E1%BA%BB%20m%E1%BB%8Di%20th%E1%BB%A9%20cho%20b%E1%BA%A1n_files/jquery.css">
+<script src="Getting%20Started%20with%20REST%20and%20Zend%20Framework%202%20-%20Chia%20s%E1%BA%BB%20m%E1%BB%8Di%20th%E1%BB%A9%20cho%20b%E1%BA%A1n_files/jquery.js" type="text/javascript"></script>
+
+	
+    
+<div id="news-info">
+    <h5 class="title-forum"><a href="http://connecttoshare.com/forum" class="f-title-forum">Diễn đàn Share &amp; Connect</a>
+    <a href="http://connecttoshare.com/forum/cat/zend-framework" class="fix-title-forum">Zend Framework</a>
+    <span class="final-title-forum">Getting Started with REST and Zend Framework 2</span></h5>
+</div>
+
+<div class="span9" style="margin-left: 0px;">
+<div id="news-wraper" class="span9">
+<div class="news-content">
+    <div class="news-user-info">
+        <div class="news-date"><span class="news-date-info"><i class="icon-file icon-white"></i>04 Mar 2014</span></div>
+        <div class="user-info">
+            <div class="span7">
+                <div class="media">
+                    <a class="pull-left news-img-user" href="#"><img src="Getting%20Started%20with%20REST%20and%20Zend%20Framework%202%20-%20Chia%20s%E1%BA%BB%20m%E1%BB%8Di%20th%E1%BB%A9%20cho%20b%E1%BA%A1n_files/88.jpg" class="img-rounded" align="left"></a>
+                    <div class="media-body">
+                        <a href="#">Jimmy Van</a>
+                        <br>Administrator                        <br><a target="_blank" href="http://connecttoshare.com/forum/news/cap-bac-trong-dien-dan"><img src="Getting%20Started%20with%20REST%20and%20Zend%20Framework%202%20-%20Chia%20s%E1%BA%BB%20m%E1%BB%8Di%20th%E1%BB%A9%20cho%20b%E1%BA%A1n_files/capdo23.gif"></a>
+                        <br>
+                        <p class="social-user-info">
+                                                                                <a target="_blank" href="http://connecttoshare.com/redirect?url=https://www.facebook.com/jimmytrivan"><img src="Getting%20Started%20with%20REST%20and%20Zend%20Framework%202%20-%20Chia%20s%E1%BA%BB%20m%E1%BB%8Di%20th%E1%BB%A9%20cho%20b%E1%BA%A1n_files/facebook_small.png"></a>
+                                                                                    <a target="_blank" href="http://connecttoshare.com/redirect?url=https://twitter.com/Tri84369470"><img src="Getting%20Started%20with%20REST%20and%20Zend%20Framework%202%20-%20Chia%20s%E1%BA%BB%20m%E1%BB%8Di%20th%E1%BB%A9%20cho%20b%E1%BA%A1n_files/twitter_small.png"></a>
+                                                                                    <a target="_blank" href="http://connecttoshare.com/redirect?url=http://www.linkedin.com/pub/tri-van/50/903/946"><img src="Getting%20Started%20with%20REST%20and%20Zend%20Framework%202%20-%20Chia%20s%E1%BA%BB%20m%E1%BB%8Di%20th%E1%BB%A9%20cho%20b%E1%BA%A1n_files/linkedin_small.png"></a>
+                                                    </p>
+                    </div>
+                </div>
+            </div>
+            <div class="span2">
+                Tham gia:  22 Sep 2013<br>
+                Bài gởi: 921<br>
+                Đến Từ: Ho Chi Minh, Viet Nam            </div>
+        </div>
+    </div>
+
+        <div class="main-content-news">
+        <div class="statistic-news">
+            <div class="classysocial bubble" data-orientation="line" data-picture="/frontend/common/img/ico/share_core_square.jpg" data-facebook-handle="/forum/post-to-wall-fb/news/getting-started-with-rest-and-zend-framework-2" data-twitter-handle="/forum/tweet-this/news/getting-started-with-rest-and-zend-framework-2" data-networks="facebook,twitter"><a class="main" title="Find Me Here" alt="Find Me Here"><img src="Getting%20Started%20with%20REST%20and%20Zend%20Framework%202%20-%20Chia%20s%E1%BA%BB%20m%E1%BB%8Di%20th%E1%BB%A9%20cho%20b%E1%BA%A1n_files/share_core_square.jpg" title="Find Me Here" alt="Find Me Here"></a><div class="network_holder default"><a class="network_button facebook" href="http://connecttoshare.com/forum/post-to-wall-fb/news/getting-started-with-rest-and-zend-framework-2" data-network="facebook">Facebook</a><a class="network_button twitter" href="http://connecttoshare.com/forum/tweet-this/news/getting-started-with-rest-and-zend-framework-2" data-network="twitter">Twitter</a></div></div>
+		    <script>
+                  $(document).ready(function() {
+                        $(".classysocial").each(function() {
+                              new ClassySocial(this);
+                         });
+                  });
+            </script>
+
+			<div style="float: left;">
+                Trả lời: 0<br>
+                Lượt xem: 51
+                <div id="OpenId">
+                    <div class=" fb_reset" id="fb-root"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe src="Getting%20Started%20with%20REST%20and%20Zend%20Framework%202%20-%20Chia%20s%E1%BA%BB%20m%E1%BB%8Di%20th%E1%BB%A9%20cho%20b%E1%BA%A1n_files/63KoCqPoniC.htm" style="border: medium none;" tab-index="-1" title="Facebook Cross Domain Communication Frame" aria-hidden="true" id="fb_xdm_frame_http" allowtransparency="true" name="fb_xdm_frame_http" frameborder="0" scrolling="no"></iframe><iframe src="Getting%20Started%20with%20REST%20and%20Zend%20Framework%202%20-%20Chia%20s%E1%BA%BB%20m%E1%BB%8Di%20th%E1%BB%A9%20cho%20b%E1%BA%A1n_files/63KoCqPoniC_002.htm" style="border: medium none;" tab-index="-1" title="Facebook Cross Domain Communication Frame" aria-hidden="true" id="fb_xdm_frame_https" allowtransparency="true" name="fb_xdm_frame_https" frameborder="0" scrolling="no"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+                    <script>(function(d, s, id) {
+                      var js, fjs = d.getElementsByTagName(s)[0];
+                      if (d.getElementById(id)) return;
+                      js = d.createElement(s); js.id = id;
+                      js.src = "//connect.facebook.net/vi_VN/all.js#xfbml=1&appId=1421469144753244";
+                      fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));</script>
+                    <div fb-iframe-plugin-query="app_id=1421469144753244&amp;href=http%3A%2F%2Fconnecttoshare.com%2Fforum%2Fnews%2Fgetting-started-with-rest-and-zend-framework-2&amp;locale=vi_VN&amp;sdk=joey&amp;type=button_count" fb-xfbml-state="rendered" class="fb-share-button fb_iframe_widget" data-href="http://connecttoshare.com/forum/news/getting-started-with-rest-and-zend-framework-2" data-type="button_count"><span style="vertical-align: bottom; width: 95px; height: 20px;"><iframe class="" src="Getting%20Started%20with%20REST%20and%20Zend%20Framework%202%20-%20Chia%20s%E1%BA%BB%20m%E1%BB%8Di%20th%E1%BB%A9%20cho%20b%E1%BA%A1n_files/share_button.htm" style="border: medium none; visibility: visible; width: 95px; height: 20px;" title="fb:share_button Facebook Social Plugin" allowtransparency="true" name="f1c8338b1f354a8" frameborder="0" height="1000px" scrolling="no" width="1000px"></iframe></span></div>
+                </div>
+
+            </div>
+        </div>
+
+        <div>
+<p>Today i want to show you how to build a rest application. This tutorials assume you have completed the <a href="http://connecttoshare.com/redirect?url=http://zf2.readthedocs.org/en/latest/user-guide/overview.html">Getting Started</a>.
+ I will be repeating lot of the steps allready explained in there. There
+ is also a sample Album module which you can install from <a href="http://connecttoshare.com/redirect?url=https://github.com/Hounddog/Album">here</a>.</p>
+
+<h3>Setting up the AlbumRest module</h3>
+
+<p>Start by creating a directory called <code>AlbumRest</code> under module with the following subdirectories to hold the module’s files:</p>
+
+<pre>    zf2-tutorial/
+        /module
+            /AlbumRest
+                /config
+                /src
+                    /AlbumRest
+                        /Controller
+                /test
+    </pre>
+
+<p>Create <code>Module.php</code> in the AlbumRest module at <code>zf2-tutorial/module/AlbumRest</code>:</p>
+
+<ol>
+	<li>
+	<ol>
+		<li>&lt;?php</li>
+		<li>namespace AlbumRest;</li>
+		<li>&nbsp;</li>
+		<li>class Module</li>
+		<li>{</li>
+		<li>public function getAutoloaderConfig()</li>
+		<li>{</li>
+		<li>return array(</li>
+		<li>'Zend\Loader\ClassMapAutoloader' =&gt; array(</li>
+		<li>__DIR__ . '/autoload_classmap.php',</li>
+		<li>),</li>
+		<li>'Zend\Loader\StandardAutoloader' =&gt; array(</li>
+		<li>'namespaces' =&gt; array(</li>
+		<li>__NAMESPACE__ =&gt; __DIR__ . '/src/' . __NAMESPACE__,</li>
+		<li>),</li>
+		<li>),</li>
+		<li>);</li>
+		<li>}</li>
+		<li>&nbsp;</li>
+		<li>public function getConfig()</li>
+		<li>{</li>
+		<li>return include __DIR__ . '/config/module.config.php';</li>
+		<li>}</li>
+		<li>}</li>
+	</ol>
+	</li>
+</ol>
+
+<h1>&nbsp;</h1>
+
+<h3>Configuration</h3>
+
+<p>Create a file called <code>module.config.php</code> under <code>zf2-tutorial/module/AlbumRest/config</code>:</p>
+
+<ol>
+	<li>
+	<ol>
+		<li>&lt;?php</li>
+		<li>return array(</li>
+		<li>'controllers' =&gt; array(</li>
+		<li>'invokables' =&gt; array(</li>
+		<li>'AlbumRest\Controller\AlbumRest' =&gt; 'AlbumRest\Controller\AlbumRestController',</li>
+		<li>),</li>
+		<li>),</li>
+		<li>'view_manager' =&gt; array(</li>
+		<li>'template_path_stack' =&gt; array(</li>
+		<li>'album-rest' =&gt; __DIR__ . '/../view',</li>
+		<li>),</li>
+		<li>),</li>
+		<li>);</li>
+	</ol>
+	</li>
+</ol>
+
+<p>As we are in development, we don’t need to load files via the 
+classmap, so we provide an empty array for the classmap autoloader. 
+Create a file called <code>autoload_classmap.php</code> under <code>zf2-tutorial/module/AlbumRest</code>:</p>
+
+<ol>
+	<li>
+	<ol>
+		<li>&lt;?php</li>
+		<li>return array();</li>
+	</ol>
+	</li>
+</ol>
+
+<h1>&nbsp;</h1>
+
+<h3>Informing the application about our new module</h3>
+
+<p>We now need to tell the ModuleManager that this new module exists. This is done in the application’s <code>config/application.config.php</code>
+ file which is provided by the skeleton application. Update this file so
+ that its modules section contains the AlbumRest module as well, so the 
+file now looks like this:</p>
+
+<p>(Changes required are highlighted using comments.)</p>
+
+<ol>
+	<li>
+	<ol>
+		<li>&lt;?php</li>
+		<li>return array(</li>
+		<li>'modules' =&gt; array(</li>
+		<li>'Application',</li>
+		<li>'Album',</li>
+		<li>'AlbumRest', // &lt;-- Add this line</li>
+		<li>),</li>
+		<li>'module_listener_options' =&gt; array(</li>
+		<li>'config_glob_paths' =&gt; array(</li>
+		<li>'config/autoload/{,*.}{global,local}.php',</li>
+		<li>),</li>
+		<li>'module_paths' =&gt; array(</li>
+		<li>'./module',</li>
+		<li>'./vendor',</li>
+		<li>),</li>
+		<li>),</li>
+		<li>);</li>
+	</ol>
+	</li>
+</ol>
+
+<p>As you can see, we have added our <code>AlbumRest</code> module into the list of modules after the <code>Album</code> module.</p>
+
+<p>We have now set up the module ready for putting our custom code into it.</p>
+
+<h1>&nbsp;</h1>
+
+<h3>Setup Rest Routing</h3>
+We need to first add our custom REST routing so we are able to call the RestController. This is the updated <code>module.config.php</code> with the new code highlighted.
+
+<ol>
+	<li>
+	<ol>
+		<li>&lt;?php</li>
+		<li>return array(</li>
+		<li>'controllers' =&gt; array(</li>
+		<li>'invokables' =&gt; array(</li>
+		<li>'AlbumRest\Controller\AlbumRest' =&gt; 'AlbumRest\Controller\AlbumRestController',</li>
+		<li>),</li>
+		<li>),</li>
+		<li>&nbsp;</li>
+		<li>// The following section is new and should be added to your file</li>
+		<li>'router' =&gt; array(</li>
+		<li>'routes' =&gt; array(</li>
+		<li>'album-rest' =&gt; array(</li>
+		<li>'type' =&gt; 'segment',</li>
+		<li>'options' =&gt; array(</li>
+		<li>'route' =&gt; '/album-rest[/:id]',</li>
+		<li>'constraints' =&gt; array(</li>
+		<li>'id' =&gt; '[0-9]+',</li>
+		<li>),</li>
+		<li>'defaults' =&gt; array(</li>
+		<li>'controller' =&gt; 'AlbumRest\Controller\AlbumRest',</li>
+		<li>),</li>
+		<li>),</li>
+		<li>),</li>
+		<li>),</li>
+		<li>),</li>
+		<li>&nbsp;</li>
+		<li>'view_manager' =&gt; array(</li>
+		<li>'template_path_stack' =&gt; array(</li>
+		<li>'album-rest' =&gt; __DIR__ . '/../view',</li>
+		<li>),</li>
+		<li>),</li>
+		<li>);</li>
+	</ol>
+	</li>
+</ol>
+
+<p>The name of the route is <code>album-rest</code> and has a type of <code>segment</code>. For a RestController we must provide a placeholder in this case the route is <code>/album-rest/id</code> which will match any URL that starts with <code>/album-rest</code>.
+ The next segment will be an optional id which is required for the 
+RestController The constraints section allows us to ensure that the 
+characters within a segment are as expected.</p>
+
+<h1>&nbsp;</h1>
+
+<h3>Setup View Strategy</h3>
+
+<p>We add the view strategy to our config at zf2-tutorial/module/Albumrest/config/module.config.php</p>
+
+<ol>
+	<li>
+	<ol>
+		<li>&lt;?php</li>
+		<li>return array(</li>
+		<li>'controllers' =&gt; array(</li>
+		<li>'invokables' =&gt; array(</li>
+		<li>'AlbumRest\Controller\AlbumRest' =&gt; 'AlbumRest\Controller\AlbumRestController',</li>
+		<li>),</li>
+		<li>),</li>
+		<li>&nbsp;</li>
+		<li>// The following section is new` and should be added to your file</li>
+		<li>'router' =&gt; array(</li>
+		<li>'routes' =&gt; array(</li>
+		<li>'album-rest' =&gt; array(</li>
+		<li>'type' =&gt; 'Segment',</li>
+		<li>'options' =&gt; array(</li>
+		<li>'route' =&gt; '/album-rest[/:id]',</li>
+		<li>'constraints' =&gt; array(</li>
+		<li>'id' =&gt; '[0-9]+',</li>
+		<li>),</li>
+		<li>'defaults' =&gt; array(</li>
+		<li>'controller' =&gt; 'AlbumRest\Controller\AlbumRest',</li>
+		<li>),</li>
+		<li>),</li>
+		<li>),</li>
+		<li>),</li>
+		<li>),</li>
+		<li>'view_manager' =&gt; array( //Add this config</li>
+		<li>'strategies' =&gt; array(</li>
+		<li>'ViewJsonStrategy',</li>
+		<li>),</li>
+		<li>),</li>
+	</ol>
+	</li>
+</ol>
+
+<h1>&nbsp;</h1>
+
+<h3>Create the controller</h3>
+
+<p>Let’s go ahead and create our controller class <code>AlbumRestController.php</code> at <code>zf2-tutorials/module/AlbumRest/src/AlbumRest/Controller</code>:</p>
+
+<ol>
+	<li>
+	<ol>
+		<li>&lt;?php</li>
+		<li>namespace AlbumRest\Controller;</li>
+		<li>&nbsp;</li>
+		<li>use Zend\Mvc\Controller\AbstractRestfulController;</li>
+		<li>&nbsp;</li>
+		<li>use Album\Model\Album;</li>
+		<li>use Album\Form\AlbumForm;</li>
+		<li>use Album\Model\AlbumTable;</li>
+		<li>use Zend\View\Model\JsonModel;</li>
+		<li>&nbsp;</li>
+		<li>class AlbumRestController extends AbstractRestfulController</li>
+		<li>{</li>
+		<li>public function getList()</li>
+		<li>{</li>
+		<li># code...</li>
+		<li>}</li>
+		<li>&nbsp;</li>
+		<li>public function get($id)</li>
+		<li>{</li>
+		<li># code...</li>
+		<li>}</li>
+		<li>&nbsp;</li>
+		<li>public function create($data)</li>
+		<li>{</li>
+		<li># code...</li>
+		<li>}</li>
+		<li>&nbsp;</li>
+		<li>public function update($id, $data)</li>
+		<li>{</li>
+		<li># code...</li>
+		<li>}</li>
+		<li>&nbsp;</li>
+		<li>public function delete($id)</li>
+		<li>{</li>
+		<li># code...</li>
+		<li>}</li>
+		<li>}</li>
+	</ol>
+	</li>
+</ol>
+
+<p>We have now set up the controller methods to map the HTTP request 
+methods. You can find a detailed explanation of the methods in the <a href="http://connecttoshare.com/redirect?url=http://framework.zend.com/manual/2.0/en/modules/zend.mvc.controllers.html#the-abstractrestfulcontroller">Manual</a></p>
+
+<h3>&nbsp;</h3>
+
+<h3>Write the tests</h3>
+
+<p>Our AlbumRest controller doesn’t do much yet, so it should be easy to test.</p>
+
+<p>Create the follwing subdirectories:</p>
+
+<pre>    zf2-tutorial/
+        /module
+            /AlbumRest
+                /test
+                    /AlbumRestTest
+                        /Controller
+    </pre>
+
+<p>Add the 3 files as described in <a href="http://connecttoshare.com/redirect?url=http://framework.zend.com/manual/2.0/en/user-guide/routing-and-controllers.html">Unit Testing</a> to module/AlbumRest/test</p>
+
+<ul>
+	<li>Bootstrap.php</li>
+	<li>phpunit.xml.dist</li>
+	<li>TestConfig.php.dist</li>
+</ul>
+
+<p>Remember here to change the <code>namespace</code> in <code>Bootstrap.php</code> and change the the <code>TestConfig.php.dist</code> to following:</p>
+
+<ol>
+	<li>
+	<ol>
+		<li>&lt;?php</li>
+		<li>return array(</li>
+		<li>'modules' =&gt; array(</li>
+		<li>'Album',</li>
+		<li>'AlbumRest'</li>
+		<li>),</li>
+		<li>'module_listener_options' =&gt; array(</li>
+		<li>'config_glob_paths' =&gt; array(</li>
+		<li>'../../../config/autoload/{,*.}{global,local}.php',</li>
+		<li>),</li>
+		<li>'module_paths' =&gt; array(</li>
+		<li>'module',</li>
+		<li>'vendor',</li>
+		<li>),</li>
+		<li>),</li>
+		<li>);</li>
+	</ol>
+	</li>
+</ol>
+
+<p>&nbsp;</p>
+
+<p>In <code>phpunit.xml</code> change the directory to point at AlbumRestTest</p>
+
+<p>Create <code>zf2-tutorial/Album/module/AlbumRest/test/AlbumRestTest/Controller/AlbumRestControllerTest.php</code> with the following contents:</p>
+
+<ol>
+	<li>
+	<ol>
+		<li>&lt;?php</li>
+		<li>namespace AlbumRestTest\Controller;</li>
+		<li>&nbsp;</li>
+		<li>use AlbumRestTest\Bootstrap;</li>
+		<li>use AlbumRest\Controller\AlbumRestController;</li>
+		<li>use Zend\Http\Request;</li>
+		<li>use Zend\Http\Response;</li>
+		<li>use Zend\Mvc\MvcEvent;</li>
+		<li>use Zend\Mvc\Router\RouteMatch;</li>
+		<li>use Zend\Mvc\Router\Http\TreeRouteStack as HttpRouter;</li>
+		<li>use PHPUnit_Framework_TestCase;</li>
+		<li>&nbsp;</li>
+		<li>class AlbumRestControllerTest extends PHPUnit_Framework_TestCase</li>
+		<li>{</li>
+		<li>protected $controller;</li>
+		<li>protected $request;</li>
+		<li>protected $response;</li>
+		<li>protected $routeMatch;</li>
+		<li>protected $event;</li>
+		<li>&nbsp;</li>
+		<li>protected function setUp()</li>
+		<li>{</li>
+		<li>$serviceManager = Bootstrap::getServiceManager();</li>
+		<li>$this-&gt;controller = new AlbumRestController();</li>
+		<li>$this-&gt;request = new Request();</li>
+		<li>$this-&gt;routeMatch = new RouteMatch(array('controller' =&gt; 'index'));</li>
+		<li>$this-&gt;event = new MvcEvent();</li>
+		<li>$config = $serviceManager-&gt;get('Config');</li>
+		<li>$routerConfig = isset($config['router']) ? $config['router'] : array();</li>
+		<li>$router = HttpRouter::factory($routerConfig);</li>
+		<li>$this-&gt;event-&gt;setRouter($router);</li>
+		<li>$this-&gt;event-&gt;setRouteMatch($this-&gt;routeMatch);</li>
+		<li>$this-&gt;controller-&gt;setEvent($this-&gt;event);</li>
+		<li>$this-&gt;controller-&gt;setServiceLocator($serviceManager);</li>
+		<li>}</li>
+		<li>&nbsp;</li>
+		<li>public function testGetListCanBeAccessed()</li>
+		<li>{</li>
+		<li>$result = $this-&gt;controller-&gt;dispatch($this-&gt;request);</li>
+		<li>$response = $this-&gt;controller-&gt;getResponse();</li>
+		<li>&nbsp;</li>
+		<li>$this-&gt;assertEquals(200, $response-&gt;getStatusCode());</li>
+		<li>}</li>
+		<li>&nbsp;</li>
+		<li>public function testGetCanBeAccessed()</li>
+		<li>{</li>
+		<li>$this-&gt;routeMatch-&gt;setParam('id', '1');</li>
+		<li>&nbsp;</li>
+		<li>$result = $this-&gt;controller-&gt;dispatch($this-&gt;request);</li>
+		<li>$response = $this-&gt;controller-&gt;getResponse();</li>
+		<li>&nbsp;</li>
+		<li>$this-&gt;assertEquals(200, $response-&gt;getStatusCode());</li>
+		<li>}</li>
+		<li>&nbsp;</li>
+		<li>public function testCreateCanBeAccessed()</li>
+		<li>{</li>
+		<li>$this-&gt;request-&gt;setMethod('post');</li>
+		<li>$this-&gt;request-&gt;getPost()-&gt;set('artist', 'foo');</li>
+		<li>$this-&gt;request-&gt;getPost()-&gt;set('title', 'bar');</li>
+		<li>&nbsp;</li>
+		<li>$result = $this-&gt;controller-&gt;dispatch($this-&gt;request);</li>
+		<li>$response = $this-&gt;controller-&gt;getResponse();</li>
+		<li>&nbsp;</li>
+		<li>$this-&gt;assertEquals(200, $response-&gt;getStatusCode());</li>
+		<li>}</li>
+		<li>&nbsp;</li>
+		<li>public function testUpdateCanBeAccessed()</li>
+		<li>{</li>
+		<li>$this-&gt;routeMatch-&gt;setParam('id', '1');</li>
+		<li>$this-&gt;request-&gt;setMethod('put');</li>
+		<li>&nbsp;</li>
+		<li>$result = $this-&gt;controller-&gt;dispatch($this-&gt;request);</li>
+		<li>$response = $this-&gt;controller-&gt;getResponse();</li>
+		<li>&nbsp;</li>
+		<li>$this-&gt;assertEquals(200, $response-&gt;getStatusCode());</li>
+		<li>}</li>
+		<li>&nbsp;</li>
+		<li>public function testDeleteCanBeAccessed()</li>
+		<li>{</li>
+		<li>$this-&gt;routeMatch-&gt;setParam('id', '1');</li>
+		<li>$this-&gt;request-&gt;setMethod('delete');</li>
+		<li>&nbsp;</li>
+		<li>$result = $this-&gt;controller-&gt;dispatch($this-&gt;request);</li>
+		<li>$response = $this-&gt;controller-&gt;getResponse();</li>
+		<li>&nbsp;</li>
+		<li>$this-&gt;assertEquals(200, $response-&gt;getStatusCode());</li>
+		<li>}</li>
+		<li>}</li>
+	</ol>
+	</li>
+</ol>
+
+<p>And execute <code>phpunit</code> from <code>module/AlbumRest/test</code>.</p>
+
+<pre>        PHPUnit 3.7.8 by Sebastian Bergmann.
+
+        .....
+
+        Time: 0 seconds, Memory: 5.25Mb
+
+        OK (5 tests, 5 assertions)
+    </pre>
+
+<p>We are going to consume services from the Album module. Let's start adding in some functionality. In our <code>AlbumRestController.php</code> add:</p>
+
+<ol>
+	<li>
+	<ol>
+		<li>public function getAlbumTable()</li>
+		<li>{</li>
+		<li>if (!$this-&gt;albumTable) {</li>
+		<li>$sm = $this-&gt;getServiceLocator();</li>
+		<li>$this-&gt;albumTable = $sm-&gt;get('Album\Model\AlbumTable');</li>
+		<li>}</li>
+		<li>return $this-&gt;albumTable;</li>
+		<li>}</li>
+	</ol>
+	</li>
+</ol>
+
+<p>You should also add:</p>
+
+<ol>
+	<li>
+	<ol>
+		<li>protected $albumTable;</li>
+	</ol>
+	</li>
+</ol>
+
+<p>Add this test to your <code>AlbumControllerTest.php</code>:</p>
+
+<ol>
+	<li>
+	<ol>
+		<li>public function testGetAlbumTableReturnsAnInstanceOfAlbumTable()</li>
+		<li>{</li>
+		<li>$this-&gt;assertInstanceOf('Album\Model\AlbumTable', $this-&gt;controller-&gt;getAlbumTable());</li>
+		<li>}</li>
+		<li>&nbsp;</li>
+	</ol>
+	</li>
+</ol>
+
+<h2>&nbsp;</h2>
+
+<h3>Listing albums</h3>
+
+<p>In order to list the albums, we need to retrieve them from the model 
+and return a JsonModel. To do this, we fill in getList() within <code>AlbumRestController</code>. Update the AlbumRestController’s getList() like this:</p>
+
+<ol>
+	<li>
+	<ol>
+		<li>public function getList()</li>
+		<li>{</li>
+		<li>$results = $this-&gt;getAlbumTable()-&gt;fetchAll();</li>
+		<li>$data = array();</li>
+		<li>foreach($results as $result) {</li>
+		<li>$data[] = $result;</li>
+		<li>}</li>
+		<li>&nbsp;</li>
+		<li>return array('data' =&gt; $data);</li>
+		<li>}</li>
+	</ol>
+	</li>
+</ol>
+
+<p>As we do not have any views for our Controller we need a method on how to test these. For this example i am using <code>curl</code> to test the functionality.</p>
+
+<pre>    $ curl -i -H "Accept: application/json" http://zf2-tutorial.localhost/album-rest
+
+    HTTP/1.1 200 OK
+    Date: Sat, 10 Nov 2012 19:36:03 GMT
+    Server: Apache/2.2.22 (Ubuntu)
+    X-Powered-By: PHP/5.4.8-1~precise+1
+    Content-Length: 320
+    Content-Type: application/json
+
+    {"content":{"data":[{"id":"1","artist":"The  Military  Wives","title":"In  My  Dreams"},{"id":"2","artist":"Adele","title":"21"},{"id":"3","artist":"Bruce  Springsteen","title":"Wrecking Ball (Deluxe)"},{"id":"4","artist":"Lana  Del  Rey","title":"Born  To  Die"},{"id":"5","artist":"Gotye","title":"Making  Mirrors"}]}}
+    </pre>
+
+<h3>&nbsp;</h3>
+
+<h3>Adding Missing functionality</h3>
+
+<p>Let's add the rest of the functionality to <code>AlbumRestController</code>.</p>
+
+<h4>Get Album</h4>
+
+<ol>
+	<li>
+	<ol>
+		<li>public function get($id)</li>
+		<li>{</li>
+		<li>$album = $this-&gt;getAlbumTable()-&gt;getAlbum($id);</li>
+		<li>&nbsp;</li>
+		<li>return array("data" =&gt; $album);</li>
+		<li>}</li>
+	</ol>
+	</li>
+</ol>
+
+<p>And run curl to see the output.</p>
+
+<pre>    $ curl -i -H "Accept: application/json" http://zf2-tutorial.localhost/album-rest/1
+
+    HTTP/1.1 200 OK
+    Date: Sat, 10 Nov 2012 19:45:07 GMT
+    Server: Apache/2.2.22 (Ubuntu)
+    X-Powered-By: PHP/5.4.8-1~precise+1
+    Content-Length: 88
+    Content-Type: application/json
+
+    {"content":{"data":{"id":"1","artist":"The  Military  Wives","title":"In  My  Dreams"}}}
+    </pre>
+
+<h4>&nbsp;</h4>
+
+<h4>Add Album</h4>
+We need to modify the <code>AlbumTable</code> in <code>module/Album/src/Album/Model</code> to return the generated id
+
+<ol>
+	<li>
+	<ol>
+		<li>public function saveAlbum(Album $album)</li>
+		<li>{</li>
+		<li>$data = array(</li>
+		<li>'artist' =&gt; $album-&gt;artist,</li>
+		<li>'title' =&gt; $album-&gt;title,</li>
+		<li>);</li>
+		<li>&nbsp;</li>
+		<li>$id = (int)$album-&gt;id;</li>
+		<li>if ($id == 0) {</li>
+		<li>$this-&gt;tableGateway-&gt;insert($data);</li>
+		<li>$id = $this-&gt;tableGateway-&gt;getLastInsertValue(); //Add this line</li>
+		<li>} else {</li>
+		<li>if ($this-&gt;getAlbum($id)) {</li>
+		<li>$this-&gt;tableGateway-&gt;update($data, array('id' =&gt; $id));</li>
+		<li>} else {</li>
+		<li>throw new \Exception('Form id does not exist');</li>
+		<li>}</li>
+		<li>}</li>
+		<li>&nbsp;</li>
+		<li>return $id; // Add Return</li>
+		<li>}</li>
+	</ol>
+	</li>
+</ol>
+
+<p>Modify the create method in <code>module/AlbumRest/src/AlbumRest/Controller/AlbumRestController</code> as following:</p>
+
+<ol>
+	<li>
+	<ol>
+		<li>public function create($data)</li>
+		<li>{</li>
+		<li>$form = new AlbumForm();</li>
+		<li>$album = new Album();</li>
+		<li>$form-&gt;setInputFilter($album-&gt;getInputFilter());</li>
+		<li>$form-&gt;setData($data);</li>
+		<li>if ($form-&gt;isValid()) {</li>
+		<li>$album-&gt;exchangeArray($form-&gt;getData());</li>
+		<li>$id = $this-&gt;getAlbumTable()-&gt;saveAlbum($album);</li>
+		<li>}</li>
+		<li>&nbsp;</li>
+		<li>return new JsonModel(array(</li>
+		<li>'data' =&gt; $this-&gt;get($id),</li>
+		<li>));</li>
+		<li>}</li>
+	</ol>
+	</li>
+</ol>
+
+<pre>    $ curl -i -H "Accept: application/json" -X POST -d "artist=AC DC&amp;title=Dirty Deeds" http://zf2-tutorial.localhost/album-rest
+
+
+    HTTP/1.1 200 OK
+    Date: Sat, 10 Nov 2012 19:45:07 GMT
+    Server: Apache/2.2.22 (Ubuntu)
+    X-Powered-By: PHP/5.4.8-1~precise+1
+    Content-Length: 88
+    Content-Type: application/json
+
+    {"content":{"data":{"id":"1","artist":"The  Military  Wives","title":"In  My  Dreams"}}}
+    </pre>
+
+<h4>&nbsp;</h4>
+
+<h4>Edit Album</h4>
+
+<ol>
+	<li>
+	<ol>
+		<li>public function update($id, $data)</li>
+		<li>{</li>
+		<li>$data['id'] = $id;</li>
+		<li>$album = $this-&gt;getAlbumTable()-&gt;getAlbum($id);</li>
+		<li>$form = new AlbumForm();</li>
+		<li>$form-&gt;bind($album);</li>
+		<li>$form-&gt;setInputFilter($album-&gt;getInputFilter());</li>
+		<li>$form-&gt;setData($data);</li>
+		<li>if ($form-&gt;isValid()) {</li>
+		<li>$id = $this-&gt;getAlbumTable()-&gt;saveAlbum($form-&gt;getData());</li>
+		<li>}</li>
+		<li>&nbsp;</li>
+		<li>return new JsonModel(array(</li>
+		<li>'data' =&gt; $this-&gt;get($id),</li>
+		<li>));</li>
+		<li>}</li>
+	</ol>
+	</li>
+</ol>
+
+<pre>    $ curl -i -H "Accept: application/json" -X PUT -d "artist=Ac-Dc&amp;title=Dirty Deeds" http://zf2-tutorial.localhost/album-rest/1
+
+    HTTP/1.1 200 OK
+    Date: Sun, 11 Nov 2012 01:25:11 GMT
+    Server: Apache/2.2.22 (Ubuntu)
+    X-Powered-By: PHP/5.4.8-1~precise+1
+    Content-Length: 70
+    Content-Type: application/json
+
+    {"content":{"data":{"id":"1","artist":"Ac-Dc","title":"Dirty Deeds"}}}
+    </pre>
+
+<h4>&nbsp;</h4>
+
+<h4>Delete Album</h4>
+
+<ol>
+	<li>
+	<ol>
+		<li>public function delete($id)</li>
+		<li>{</li>
+		<li>$this-&gt;getAlbumTable()-&gt;deleteAlbum($id);</li>
+		<li>&nbsp;</li>
+		<li>return new JsonModel(array(</li>
+		<li>'data' =&gt; 'deleted',</li>
+		<li>));</li>
+		<li>}</li>
+	</ol>
+	</li>
+</ol>
+
+<pre>    $ curl -i -H "Accept: application/json" -X DELETE http://modules.zendframework.com.dev/album-rest/7
+
+    HTTP/1.1 200 OK
+    Date: Sun, 11 Nov 2012 01:28:43 GMT
+    Server: Apache/2.2.22 (Ubuntu)
+    X-Powered-By: PHP/5.4.8-1~precise+1
+    Content-Length: 30
+    Content-Type: application/json
+
+    {"content":{"data":"deleted"}}
+    </pre>
+
+<p>So now we have turned our Album into a Restfull Application. I wanted
+ to implement a jGrid for this tutorial but i belive that would be 
+suited for a new Module. Thanks for all the commments to upgrade/fix 
+this blog.</p>
+
+<p>The sample source code for this Module can be found <a href="http://connecttoshare.com/redirect?url=https://github.com/hounddog/AlbumRest">here</a>.</p>
+</div>
+        <div id="news-show-resources"><small>Nguồn gốc: http://hounddog.github.io/blog/getting-started-with-rest-and-zend-framework-2/</small></div>
+    </div>
+</div>
+
+<div class="btn-comment">
+    <div class="news-comment">
+                     <button class="btnComment btn btn-info" type="button">Bình luận</button>
+            </div>
+</div>
+</div>
+
+
+<!-- -----------------------------------------------------Start Show Comment Of This Posts------------------------------------------------ -->
+<!-- -------------------------------------------------------------------End Show Comment Of This Posts ------------------------------------------------->
+
+
+<div style="clear: both;"></div>
+
+</div>
+
+<div id="news-wraper-ads-right" class="span3">
+    <div id="related-news">
+        <div class="header-lasted-news"><div class="header-lasted-news-title">Related News</div></div>
+                <div class="live-content-news">
+              <div class="live-content-new"><div class="live-news-update-button">NEWS</div>
+              <div class="news-update-date">04 Mar 2014</div></div>
+              <div class="news-update-information">
+                    <a href="http://connecttoshare.com/forum/news/getting-started-with-rest-and-zend-framework-2">Getting Started with REST and Zend Framework 2</a>
+              </div>
+        </div>
+                <div class="live-content-news">
+              <div class="live-content-new"><div class="live-news-update-button">NEWS</div>
+              <div class="news-update-date">03 Feb 2014</div></div>
+              <div class="news-update-information">
+                    <a href="http://connecttoshare.com/forum/news/how-to-use-a-database-for-session-handling-in-the-zend-framework">How to use a Database for Session Handling in the Zend Framework</a>
+              </div>
+        </div>
+                <div class="live-content-news">
+              <div class="live-content-new"><div class="live-news-update-button">NEWS</div>
+              <div class="news-update-date">12 Jan 2014</div></div>
+              <div class="news-update-information">
+                    <a href="http://connecttoshare.com/forum/news/add-headscript--headtitle-and-headmeta-in-the-view-controller-zf2">Add headScript, headTitle and headMeta in the view/controller ZF2</a>
+              </div>
+        </div>
+                <div class="live-content-news">
+              <div class="live-content-new"><div class="live-news-update-button">NEWS</div>
+              <div class="news-update-date">09 Jan 2014</div></div>
+              <div class="news-update-information">
+                    <a href="http://connecttoshare.com/forum/news/working-with-authenticationservice-and-session-db-save-handler-in-zf2">Working with AuthenticationService and Session Db Save Handler in ZF2</a>
+              </div>
+        </div>
+                <div class="live-content-news">
+              <div class="live-content-new"><div class="live-news-update-button">NEWS</div>
+              <div class="news-update-date">27 Dec 2013</div></div>
+              <div class="news-update-information">
+                    <a href="http://connecttoshare.com/forum/news/i-use-inputfilter-but-it-not-showing-error-message-in-zend-2">I use InputFilter but it not showing error message in zend 2</a>
+              </div>
+        </div>
+            </div>
+    <div id="lasted-news">
+        <div class="header-lasted-news"><div class="header-lasted-news-title">Tin Mới Nhất</div></div>
+                <div class="live-content-news">
+                  <div class="live-content-new"><div class="live-news-update-button">NEWS</div>
+                  <div class="news-update-date">09 Mar 2014</div></div>
+                  <div class="news-update-information">
+                    <a href="http://connecttoshare.com/forum/news/learn-how-to-create-integrated-web-applications-with-soap">Learn how to create integrated Web applications with SOAP</a>
+                  </div>
+        </div>
+                <div class="live-content-news">
+                  <div class="live-content-new"><div class="live-news-update-button">NEWS</div>
+                  <div class="news-update-date">09 Mar 2014</div></div>
+                  <div class="news-update-information">
+                    <a href="http://connecttoshare.com/forum/news/tao-rest-api-voi-slim-php-micro-framework">Tạo REST API với Slim PHP micro-framework</a>
+                  </div>
+        </div>
+                <div class="live-content-news">
+                  <div class="live-content-new"><div class="live-news-update-button">NEWS</div>
+                  <div class="news-update-date">04 Mar 2014</div></div>
+                  <div class="news-update-information">
+                    <a href="http://connecttoshare.com/forum/news/getting-started-with-rest-and-zend-framework-2">Getting Started with REST and Zend Framework 2</a>
+                  </div>
+        </div>
+                <div class="live-content-news">
+                  <div class="live-content-new"><div class="live-news-update-button">NEWS</div>
+                  <div class="news-update-date">04 Mar 2014</div></div>
+                  <div class="news-update-information">
+                    <a href="http://connecttoshare.com/forum/news/4-ly-do-vi-sao-cac-web-developer-lai-chon-php">4 lý do vì sao các Web Developer lại chọn PHP</a>
+                  </div>
+        </div>
+                <div class="live-content-news">
+                  <div class="live-content-new"><div class="live-news-update-button">NEWS</div>
+                  <div class="news-update-date">03 Mar 2014</div></div>
+                  <div class="news-update-information">
+                    <a href="http://connecttoshare.com/forum/news/view-gateway--delete-gateway-and-add-new-gateway-in-linux">View gateway, delete gateway and add new gateway in linux</a>
+                  </div>
+        </div>
+            </div>
+            <div id="related-news">
+<div class="header-lasted-news">
+<div class="header-lasted-news-title">Learn Online</div>
+</div>
+
+<div class="live-content-news">
+<div class="news-update-information"><a href="http://connecttoshare.com/redirect?url=/search/can-ban-lap-trinh-web-voi-php" target="_blank">PHP Online</a></div>
+</div>
+
+<div class="live-content-news">
+<div class="news-update-information"><a href="http://connecttoshare.com/redirect?url=http://www.w3schools.com/html/html5_intro.asp" target="_blank">HTML5</a></div>
+</div>
+
+<div class="live-content-news">
+<div class="news-update-information"><a href="http://connecttoshare.com/redirect?url=http://slides.html5rocks.com/#landing-slide" target="_blank">HTML5 Presentation</a></div>
+</div>
+
+<div class="live-content-news">
+<div class="news-update-information"><a href="http://connecttoshare.com/redirect?url=http://www.w3schools.com/css3/default.asp" target="_blank">CSS3</a></div>
+</div>
+
+<div class="live-content-news">
+<div class="news-update-information"><a href="http://connecttoshare.com/redirect?url=http://www.w3schools.com/sql/" target="_blank">SQL Tutorial</a></div>
+</div>
+
+<div class="live-content-news">
+<div class="news-update-information"><a href="http://connecttoshare.com/redirect?url=http://www.cgisecurity.com/lib/ryan_barnett_gcux_practical.html" target="_blank">Securing Apache</a></div>
+</div>
+</div>
+    </div>
+
+
+
+        <!-- Show Modal When You Click Comment That Is Not Log In -->
+        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">Đăng nhập đến tài khoản của bạn</h3>
+            </div>
+            <div class="modal-body">
+                <div class="span4">
+                    <div class="main-signin" style="margin-top:20px">
+                       <form action="/signin" method="post" name="user-login" class="form-horizontal" id="user-login">                       <div class="control-group">
+                           <label class="control-label" for="inputEmail">Email</label>
+                           <div class="controls">
+                              <input name="Email" type="text">                           </div>
+                        </div>
+
+                        <input name="news-title" value="getting-started-with-rest-and-zend-framework-2" type="hidden">
+
+                        <div class="control-group">
+                           <label class="control-label" for="inputPassword">Mật khẩu</label>
+                           <div class="controls">
+                              <input name="PassWord" value="" type="password">                           </div>
+                         </div>
+                       <div class="control-group">
+                           <div class="controls">
+                              <label class="checkbox">
+                                 <input id="rememberme" name="rememberme" type="checkbox">  Ghi nhớ?                              </label>
+                              <input name="csrf" value="2816e98c33f098b3ca32e3c1d49d4745" type="hidden">                              <input name="submit" id="submitbutton" class="btn" value="Sign in" type="submit">                           </div>
+                        </div>
+                       </form>                                    <p class="signin-option">
+                                        Nếu bạn không có một tài khoản thì                                        <a href="http://connecttoshare.com/signup">click ở đây</a>
+                                        để đăng kí                                     </p>
+                                     <p>
+                                        Quên mật khẩu?                                        <a href="http://connecttoshare.com/forgotpassword">click ở đây</a>
+                                     </p>
+                     </div>
+                </div>
+            </div>
+        </div>
+
+<script type="text/javascript">
+$('.btnComment').click(function() {
+    var auth = $("#auth").html();
+    if(auth == "0"){
+        $('#myModal').modal('show'); return false;
+    }
+});
+</script></div>
+        <div id="params">
+            <div id="auth">0</div>
+        </div>
+   </div>
+
+
+   <div id="main-footer-wraper">
+        <div id="footer" class="container">
+            <div class="row-fluid">
+
+                              <div id="newsletter" class="span4">
+                    <h2>Thống Kê</h2>
+                    <p><i class="icon-user"></i> Người đang xem: N/A</p>
+                    <p><i class="icon-user"></i> Người đăng kí: 6</p>
+                    <p><i class="icon-file"></i> Bài Viết: 922</p>
+                    <p><i class="icon-file"></i> Bình luận: 0</p>
+               </div>
+
+               <div class="span4 footer-contact-us">
+                    <h2 class="custom-h2-footers">Liên Hệ</h2>
+                    <p id="location">Ho Chi Minh, Viet Nam</p>
+                    <p id="mail">vanminhtri88@gmail.com <br>Gửi email cho chúng tôi                    <a href="http://connecttoshare.com/contact">form liên hệ</a>
+                    </p>
+               </div>
+
+                <div class="span4 follow-us">
+                    <h2>Mạng Xã Hội</h2>
+                    <p>Xem thông tin của chúng tôi trên mạng xã hội</p>
+                    <p>
+                        <a href="https://www.facebook.com/ShareAndConnect" target="_blank"><img src="Getting%20Started%20with%20REST%20and%20Zend%20Framework%202%20-%20Chia%20s%E1%BA%BB%20m%E1%BB%8Di%20th%E1%BB%A9%20cho%20b%E1%BA%A1n_files/facebook.png"></a>
+                        <img src="Getting%20Started%20with%20REST%20and%20Zend%20Framework%202%20-%20Chia%20s%E1%BA%BB%20m%E1%BB%8Di%20th%E1%BB%A9%20cho%20b%E1%BA%A1n_files/twitter.png">
+                    </p>
+                </div>
+             <!-- end follow us block -->
+
+            </div>
+        </div>
+
+        <div class="container">
+            <footer>
+                <p>
+                <a href="http://connecttoshare.com/">Trang Chủ</a> | 
+                <a href="http://connecttoshare.com/about">Giới Thiệu</a> | 
+                <a href="http://connecttoshare.com/forum/news/noi-quy-khi-ban-dang-ki-lam-thanh-vien-cua-dien-dan">Điều khoản và điều kiện</a><br>
+                Copyright © 2013 - by <a href="http://www.linkedin.com/pub/tri-van/50/903/946" target="_blank">Tri Van.</a> All rights reserved.                </p>
+            </footer>
+        </div>
+
+    </div>
+
+
+<!-- GOOGLE ANALATIC -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46700636-1', 'connecttoshare.com');
+  ga('send', 'pageview');
+
+</script>
+<!-- GOOGLE ANALATIC -->
+
+
+
+
+
+</body></html>

@@ -1,0 +1,317 @@
+/* -----------------------------start show Share button----------------------------- */
+
+/* -----------------------------end show Share button----------------------------- */
+
+
+
+.clear-comment{
+    clear: both;
+    margin-bottom: 15px;
+}
+
+#Focus-tab-forum{
+    margin-bottom: 10px;
+}
+.tab-content-forum{
+	margin-bottom: 20px;
+	min-height: 200px !important;
+}
+.live-content-news-lo{
+	
+}
+
+#news-show-resources{
+	float: left;
+	width: 100%;
+	margin-top: 20px;
+}
+
+#news-top-ads{
+	margin-bottom: 20px;
+	float: left;
+	overflow: hidden;
+	max-height: 100px;
+	width: 100%;
+}
+#news-top-ads img,#news-wraper-ads-right img{
+	width: 100%;
+}
+
+.header-lasted-news{
+ 	background: none repeat-x scroll 0 0 #3883CC;
+    border-color: #BCCBD8;
+    color: #FFFFFF;
+    width: 100%;
+    float: left;
+    margin-bottom: 10px;
+    height: 30px;
+}
+.header-lasted-news-title {
+    font-weight: bold;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+.live-content-new {
+    padding-left: 10px;
+}
+.live-content-news{
+	width: 100%;
+    float: left;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.live-news-update-button {
+    background: none repeat scroll 0 0 #598769;
+    padding: 0 10px;
+    float: left;
+    font-size: 12px;
+    font-style: italic;
+    height: 19px;
+    margin-right: 10px;
+    text-align: center;
+    width: 42px;
+    color: white;
+}
+.news-update-date{
+	font-size: 12px;
+}
+
+.news-update-author{
+    font-size: 12px;
+}
+.news-custom-link a{
+	color:#176093;
+}
+.news-update-information {
+    font-size: 14px;
+    padding-left: 10px;
+}
+.news-comment-wrap{
+    margin-left: 0px !important;
+    margin-bottom: 15px !important;
+}
+
+#news-top-ads .span12,#news-top-ads .span6:first-child,
+#news-top-ads .span4:first-child,#news-wraper{
+	margin: 0px !important;
+	padding: 0px !important;
+}
+
+.btn-comment{
+	float: left;
+	width: 100%;
+}
+
+#lasted-news, #related-news{
+	float: left;
+    width: 100%;
+    background: none repeat scroll 0 0 #F2F6F8;
+    margin-bottom: 20px;
+}
+
+
+
+/* ------------------ start style for show news ----------------------*/
+#news-info{
+    float: left;
+    font: 11px Tahoma,Calibri,Verdana,Geneva,sans-serif;
+    width: 100%;
+    margin-bottom: 20px;
+}
+#news-info h5{
+	margin: 0px;
+}
+.news-content{
+	width: 100%;
+	font-size: 14px;
+	float: left;
+	border: 1px solid #E9E9E9;
+	border-radius : 10px;
+}
+.news-user-info{
+	
+}
+.social-user-info{
+	margin: 0px !important;
+}
+.main-content-news{
+	float: left;
+	padding: 15px;
+}
+.statistic-news{
+	font-style: italic;
+	font-size: 16px;
+	margin-bottom: 20px;
+	float: left;
+	width: 100%;
+}
+.news-connect-facebook{
+	padding-bottom: 20px;
+	display: none;
+}
+.news-thanks{
+	float: right;
+	width: 100%;
+	text-align: right;
+	padding-right: 15px;
+	padding-bottom: 5px;
+}
+.news-comment{
+	float: right;
+	padding: 15px;
+}
+
+.news-date{
+	width: 100%;
+    clear: both;
+    color: #3883CC;
+    display: block;
+    font: Tahoma,Calibri,Verdana,Geneva,sans-serif;
+    font-weight: bold;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    background: none repeat-x scroll 0 0 #E7EEF2;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
+.news-date-info{
+	padding-left: 10px;
+}
+.user-info{
+	background: none repeat scroll 0 0 #F2F6F8;
+    float: left;
+    height: auto !important;
+    width: 100% !important;
+    overflow: hidden;
+}
+.user-info,.user-info .span2{
+	margin: 0 !important;
+    padding: 4px 0 !important;;
+}
+.user-info .span7{
+	margin: 0 !important;
+    padding: 4px 10px !important;;
+}
+.news-img-user img{
+    max-height: 80px !important;
+    width: 100px;
+}
+.news-img-user{
+	padding-left: 5px;
+}
+
+/* ------------------ end style for show news ----------------------*/
+
+#forum{
+	background: none repeat-x scroll 0 0 #E7EEF2;
+	font: 11px Tahoma,Calibri,Verdana,Geneva,sans-serif;
+	float: left;
+	width: 100%;
+}
+.left-forum{
+	margin-left: 0px !important;
+}
+.f-title-forum{
+	background-image: url("/frontend/common/img/ico/navbit-arrow-right.png");
+    background-position: right center;
+    background-repeat: no-repeat;
+    float: left;
+    padding-right: 15px;
+    color: #1E5B7E;
+}
+.fix-title-forum{
+	background-image: url("/frontend/common/img/ico/navbit-arrow-right.png");
+    background-position: right center;
+    background-repeat: no-repeat;
+    float: left;
+    padding-right: 15px;
+    padding-left: 8px;
+    color: #1E5B7E;
+}
+.final-title-forum{
+	padding-left: 8px;
+}
+
+.catogory-list-news{
+	font-size: 13px !important;
+}
+.catogory-list-news a{
+	color: #1E5B7E;
+	font-weight: bold;
+}
+.table th, .table td{
+	vertical-align: middle;
+}
+
+#forum .detail-content-cat{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.title-forum,.title-forum-bottom{
+    background: url("/frontend/common/img/forum/home.png") no-repeat scroll 13px 8px transparent;
+    color: #1E5B7E;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 12px 0 10px 50px;
+    margin: 0px;
+}
+
+#forum .block-category{width: 100%;}
+#forum .content-category{
+    background-color: #D9EDF7;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 20px;
+    margin-left: 0 !important;
+    padding-bottom: 10px;
+    padding-right: 0;
+    padding-top: 10px;
+    text-align: left;
+    width: 100%;
+}
+#forum .detail-category{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#forum .super-category{
+	font-size: 15px;
+	font-weight: bold;
+	line-height: 20px;
+    padding: 10px 0;
+    text-align: left;
+    background: none repeat-x scroll 0 0 #3883CC;
+    border-color: #BCCBD8;
+    color: #FFFFFF;
+    width: 100%;
+    float: left;
+}
+#forum .super-category-title{padding-left: 10px;}
+#forum .main-category{
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 20px;
+    padding: 10px 0;
+    text-align: left;
+    background: none repeat-x scroll 0 0 #F9F9F9;
+    border-top: 1px solid #DDDDDD;
+    color: black;
+    width: 100%;
+    float: left;
+}
+#forum .main-category-title{padding-left: 10px;}
+
+
+#forum thead{
+    background: none repeat-x scroll 0 0 #3883CC;
+    border-color: #BCCBD8;
+    color: #FFFFFF;
+}
+#forum .threads{
+	width: 100%;
+	float: left;
+}
+
+#forum .table{margin-bottom: 0px;}
